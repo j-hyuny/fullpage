@@ -11,6 +11,8 @@ body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(90deg, rgba(8, 9, 37, 0.9) 0%, rgba(17, 24, 85, 0.9) 100%);
   color: var(--primary);
+  font-size: 16px;
+  font-weight: 400;
 }
 
 section {
@@ -21,9 +23,9 @@ section {
   width: 94%;
   height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 0 auto; /*중앙 배치*/
-  align-items: center;
 }
 
 .info {
@@ -66,6 +68,7 @@ section {
   justify-content: center;
   flex-direction: column; /*세로로 떨어짐*/
   transition: left 0.3s;
+  z-index: 1;
 }
 
 .nav.active {
@@ -84,13 +87,20 @@ section {
   font-size: 30px;
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: padding 0.3s;
+}
+
+.nav a.active {
+  color: #fff;
+  padding-left: 30px;
 }
 
 .search_area {
   position: fixed;
   top: -100px;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
   height: 100px; /*header의 높이만큼*/
   display: flex;
   align-items: center;
@@ -147,6 +157,11 @@ section {
 .info .line {
   height: 3px;
   background-color: var(--accent);
+  width: 0;
+  transition: width 0.3s;
+}
+
+.info .line.active {
   width: 50%;
 }
 
@@ -176,4 +191,8 @@ section {
 .photo {
   border-radius: 12px;
   overflow: hidden; /*radius 사용 시 필수*/
+}
+
+#fp-nav ul li a span {
+  background: var(--accent);
 }
